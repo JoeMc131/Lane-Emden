@@ -4,4 +4,4 @@
 using namespace std;
 
 
-vector<double> Euler_first_order(double y_0, function<double(double, double)> f, double dx, double x, double x_max);
+vector<vector<double>> Euler(function<double(double, vector<double>, double)> f, vector<double> y_0, double x_min, double x_max, double dx, double n = 0);

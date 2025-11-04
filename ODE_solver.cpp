@@ -3,22 +3,32 @@
 
 using namespace std;
 
-vector<double> Euler_first_order(double y_0, function<double(double, double)> f, double dx, double x, double x_max){
+vector<vector<double>> Euler(vector<double>(*f)(double, vector<double>, double), vector<double> y_0, double x_min, double x_max, double dx, double n = 0){
     
-    vector<double> y = {y_0};
-    double y_1;
+    vector<vector<double>> y;
 
+    for (int i = 0; i<y_0.size(); i++){
+        y.push_back({y_0[i]});
+    }
 
-    while(x<x_max){
+    double x = x_min;
+    vector<double> y_temp;
+
+    while (x<x_max){
+
+        x += dx;
+        y_temp = {};
+
         try{
-            y_1 = y.back() + dx * f(x, y.back());
-            x += dx;
+            for (int i = 0; i<y_0.size();i++){
+                y_temp.push_back(y[i].back() + dx*f(x, y[i], n)[i]);
+            }
+            for (int i = 0; i<y_0.size(); i++){
+                y[i].push_back(y_temp[i]);
+            }
         }
         catch(const std::exception& e){
             break;
-        }
+        }   
     }
-
-    return y;
-
 }
