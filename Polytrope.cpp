@@ -4,6 +4,7 @@
 #include<vector>
 #include"ODE_solver.h"
 #include "Polytrope.h"
+#include"Physics.h"
 
 using namespace std;
 using namespace constants;
@@ -17,10 +18,11 @@ vector<double> dy_dx(double xi, vector<double> y, double n){
     return {-(2*beta)/xi - pow(theta, n), beta};
 }
 
-Polytrope::Polytrope(double n, double M){
+Polytrope::Polytrope(double n, double M, double R){
 
     mass = M;
     index = n;
+    radius = R;
 
     y_0 = {0, 1};
 

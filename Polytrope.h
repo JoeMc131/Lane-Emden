@@ -17,6 +17,7 @@ public:
 
     double index;
     double mass;
+    double radius;
     vector<double> beta;
     vector<double> theta;
     vector<double> pressure;
@@ -27,7 +28,7 @@ public:
     vector<double> r;
 
 
-    Polytrope(double n, double M);
+    Polytrope(double n, double M, double R);
 
     void PrintSummary();
 };

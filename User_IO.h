@@ -12,6 +12,8 @@ double Input_index();
 
 double Input_Mass();
 
+double Input_Radius();
+
 void OutputData(Polytrope p, string filename);
 
 #endif

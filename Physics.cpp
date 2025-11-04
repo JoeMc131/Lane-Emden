@@ -42,4 +42,27 @@ vector<double> Temperature(vector<double> P, vector<double> rho){
     return T;
 }
 
-vector<double> Density()
+double central_density(double M, double R, double xi_R, double dtheta){
+    double rho_c = (-M*xi_R)/(4*PI*pow(R, 2) * dtheta);
+
+    return rho_c;
+}
+
+vector<double> Density(Polytrope p){
+    double mass = p.mass;
+    double radius = p.radius;
+    double n = p.index;
+    double xi_R = p.xi.back();
+    double dtheta_R = p.beta.back();
+
+    double rho_c = central_density(mass, radius, xi_R, dtheta_R);
+
+    vector<double> rho;
+
+    for(int i = 0; i<p.xi.size(); i++){
+        rho.push_back(pow(p.theta[i], n) * rho_c);
+    }
+
+    return rho;
+
+}
