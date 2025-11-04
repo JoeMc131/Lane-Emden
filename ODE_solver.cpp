@@ -1,9 +1,10 @@
 #include <math.h>
 #include <vector>
+#include "Polytrope.h"
 
 using namespace std;
 
-vector<vector<double>> Euler(vector<double>(*f)(double, vector<double>, double), vector<double> y_0, double x_min, double x_max, double dx, double n = 0){
+vector<vector<double>> Euler(vector<double> y_0, double x_min, double x_max, double dx, double n){
     
     vector<vector<double>> y;
 
@@ -21,7 +22,7 @@ vector<vector<double>> Euler(vector<double>(*f)(double, vector<double>, double),
 
         try{
             for (int i = 0; i<y_0.size();i++){
-                y_temp.push_back(y[i].back() + dx*f(x, y[i], n)[i]);
+                y_temp.push_back(y[i].back() + dx*dy_dx(x, y[i], n)[i]);
             }
             for (int i = 0; i<y_0.size(); i++){
                 y[i].push_back(y_temp[i]);
@@ -31,4 +32,5 @@ vector<vector<double>> Euler(vector<double>(*f)(double, vector<double>, double),
             break;
         }   
     }
+    return y;
 }

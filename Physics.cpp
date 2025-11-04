@@ -1,10 +1,18 @@
+
+
+
+
+
+#include <iostream>
+#include <math.h>
 #include "constants.h"
-#include "vector"
-#include<iostream>
+#include <vector>
+#include "ODE_solver.h"
+#include "Physics.h"
+
 
 using namespace std;
-using namespace CONSTANTS;
-
+using namespace constants;
 
 vector<double> Pressure(double xi_R, double R, double n, vector<double> rho){
     /*
