@@ -41,3 +41,5 @@ vector<double> Temperature(vector<double> P, vector<double> rho){
 
     return T;
 }
+
+vector<double> Density()

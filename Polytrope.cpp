@@ -18,10 +18,27 @@ vector<double> dy_dx(double xi, vector<double> y, double n){
 }
 
 Polytrope::Polytrope(double n, double M){
+
     mass = M;
     index = n;
 
     y_0 = {0, 1};
 
+    // Solve Euler equations to obtain (beta, theta)
+    cout << "Solving Euler Equations.." << endl;
     vector<vector<double>> y = Euler(y_0, 0., 10, 0.001, index);
+    cout << "Done!" << endl;
+
+    // get xi
+    xi.push_back(0);
+    for(int i = 0; i<y[0].size(); i++){
+        xi.push_back(xi.back() + 0.001);
+    }
+
+    beta = y[0];
+    theta = y[1];
+}
+
+void Polytrope::PrintSummary(){
+        cout << "n = " << index << ", M = " << mass << endl;
 }

@@ -13,6 +13,8 @@ using namespace std;
 vector<double> dy_dx(double xi, vector<double> y, double n);
 
 class Polytrope{
+public:
+
     double index;
     double mass;
     vector<double> beta;
@@ -21,8 +23,12 @@ class Polytrope{
     vector<double> temperature;
     vector<double> density;
     vector<double> y_0;
-public:
+    vector<double> xi;
+    vector<double> r;
+
 
     Polytrope(double n, double M);
+
+    void PrintSummary();
 };
 #endif

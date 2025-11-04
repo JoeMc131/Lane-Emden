@@ -3,9 +3,12 @@ CXX = g++
 
 TARGET = LaneEmden
 
-TARGET_DEL = LaneEmden.exe
+SRCS = $(wildcard *.cpp)
 
-SRCS = ODE_solver.cpp Physics.cpp Polytrope.cpp Star.cpp
+VERSION=c++11
 
 all:
-	g++ -o polytrope $(SRCS) -std=c++11
+	$(CXX) -o $(TARGET) $(SRCS) -std=$(VERSION)
+
+clean:
+	rm -f $(TARGET)
