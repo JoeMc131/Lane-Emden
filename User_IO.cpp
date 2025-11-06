@@ -49,13 +49,13 @@ void OutputData(Polytrope p, string filename){
 
     output_file.open("data/" + filename);
 
-    output_file << "xi,theta,dtheta_dxi,r,density,pressure,Temperature" << endl;
+    output_file << "xi,theta,dtheta_dxi,density,pressure,Temperature" << endl;
 
     for(int i = 0; i<p.beta.size(); i++){
         output_file << p.xi[i] << ","
                     << p.theta[i] << "," 
                     << p.beta[i] << ","
-                    << p.r[i] << ","
+                    // << p.r[i] << ","
                     << p.density[i] << ","
                     << p.pressure[i] << ","
                     << p.temperature[i] << endl;

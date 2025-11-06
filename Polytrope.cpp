@@ -10,12 +10,16 @@ using namespace std;
 using namespace constants;
 
 
-vector<double> dy_dx(double xi, vector<double> y, double n){
+double dy_dx(double xi, vector<double> y, double n, int index){
 
     double beta = y[0];
     double theta = y[1];
 
-    return {-(2*beta)/xi - pow(theta, n), beta};
+    cout << beta << ", " << theta << endl;
+
+    vector<double> dy = {(-(2*beta)/xi - pow(theta, n)), beta};
+
+    return dy[index];
 }
 
 Polytrope::Polytrope(double n, double M, double R){

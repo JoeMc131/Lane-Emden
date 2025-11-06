@@ -43,7 +43,7 @@ vector<double> Temperature(vector<double> P, vector<double> rho){
 }
 
 double central_density(double M, double R, double xi_R, double dtheta){
-    double rho_c = (-M*xi_R)/(4*PI*pow(R, 2) * dtheta);
+    double rho_c = (-M*xi_R)/(4*PI*pow(R, 3) * dtheta);
 
     return rho_c;
 }

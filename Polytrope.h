@@ -10,7 +10,7 @@
 
 using namespace std;
 
-vector<double> dy_dx(double xi, vector<double> y, double n);
+double dy_dx(double xi, vector<double> y, double n, int index);
 
 class Polytrope{
 public:

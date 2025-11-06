@@ -21,5 +21,7 @@ int main(){
     p.pressure = Pressure(p.xi.back(), R, n, p.density);
     p.temperature = Temperature(p.pressure, p.density);
 
+    OutputData(p, "test_star.csv");
+
     return 0;
 }
